@@ -26,6 +26,10 @@ app.use('/api/v1/cart', cartsRoutes);
 // Global error handler
 app.use(globalErrorHandler);
 
+app.get('/', (req, res) => {
+  res.status(200).json('Todo Bien');
+});
+
 app.all('*', (req, res) => {
   res.status(404).json({
     status: 'error',
