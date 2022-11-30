@@ -17,6 +17,9 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 else if (process.env.NODE_ENV === 'production') app.use(morgan('combined'));
 
+app.get('/', (req, res) => {
+  res.status(200).json('Todo Bien');
+});
 //Endpoints
 
 app.use('/api/v1/users', usersRoutes);
@@ -25,10 +28,6 @@ app.use('/api/v1/cart', cartsRoutes);
 
 // Global error handler
 app.use(globalErrorHandler);
-
-app.get('/', (req, res) => {
-  res.status(200).json('Todo Bien');
-});
 
 app.all('*', (req, res) => {
   res.status(404).json({
