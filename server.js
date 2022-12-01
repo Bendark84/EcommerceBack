@@ -1,5 +1,6 @@
 const { app } = require('./app');
 const { db } = require('./utils/database.util');
+const swaggerDocs = require('./swagger');
 
 const { initModels } = require('./models/initModels');
 
@@ -15,6 +16,7 @@ const startServer = async () => {
 
     app.listen(PORT, () => {
       console.log('Express app running!', PORT);
+      swaggerDocs(app, PORT);
     });
   } catch (error) {
     console.log(error);

@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 else if (process.env.NODE_ENV === 'production') app.use(morgan('combined'));
 
 app.get('/', (req, res) => {
-  res.status(200).json('Todo Bien');
+  res.status(200).json('API Ecommerce');
 });
 //Endpoints
 
