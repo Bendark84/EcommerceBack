@@ -51,6 +51,34 @@ const usersRoutes = express.Router();
  *                   type: array
  *                   items:
  *                     $ref: "#/components/schemas/users"
+ * /api/v1/conversations/{id}:
+ *   get:
+ *     security:
+ *       - bearerAuth: []
+ *     summary: Get all conversations from user
+ *     tags: [conversations]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *         description: user Id
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: OK
+ *                 data:
+ *                   type: array
+ *                   items: {}
  */
 
 usersRoutes.post('/signup', createUserValidators, createUser);
