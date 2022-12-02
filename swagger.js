@@ -10,7 +10,14 @@ const options = {
       description: 'API para el ecommerce',
     },
   },
-  apis: ['./routes/user.routes.js', './models/users.model.js'],
+  apis: [
+    './routes/user.routes.js',
+    './routes/products.routes.js',
+    './routes/carts.routes.js',
+    './models/users.model.js',
+    './models/products.model.js',
+    './models/carts.model.js',
+  ],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

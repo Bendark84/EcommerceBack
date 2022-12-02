@@ -1,5 +1,32 @@
 const { db, DataTypes } = require('../utils/database.util');
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     product:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           example: TV *
+ *         quantity:
+ *           type: integer
+ *           example: 2
+ *         price:
+ *           type: integer
+ *           example: 1000
+ *         userId:
+ *           tye: integer
+ *           axample: 1
+ *
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ */
+
 const Product = db.define('product', {
   id: {
     type: DataTypes.INTEGER,

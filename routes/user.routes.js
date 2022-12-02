@@ -51,12 +51,38 @@ const usersRoutes = express.Router();
  *                   type: array
  *                   items:
  *                     $ref: "#/components/schemas/users"
- * /api/v1/conversations/{id}:
+ * /api/v1/users/login:
+ *   post:
+ *     summary: Login a user into the app
+ *     tags: [Users]
+ *     requestBody:
+ *       description: Login a user you need a username,email and password
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/register"
+ *     responses:
+ *       201:
+ *         description: created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: OK
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     $ref: "#/components/schemas/users"
+ * /api/v1/users/{id}:
  *   get:
  *     security:
  *       - bearerAuth: []
- *     summary: Get all conversations from user
- *     tags: [conversations]
+ *     summary: Get all users
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: id
@@ -79,6 +105,7 @@ const usersRoutes = express.Router();
  *                 data:
  *                   type: array
  *                   items: {}
+ 
  */
 
 usersRoutes.post('/signup', createUserValidators, createUser);
